@@ -130,21 +130,25 @@ class Mancala:
                 Player2 pit1, player2 pit2, player2 pit3, player2 pit4, player2 pit5, player2 pit6, player2 store,]
 
         """
-        # Checks for invalid pit index.
+        # If the user pit index is invalid (outside [1,6]), return.
         if pit_idx > 6 or pit_idx < 1:
             return "Invalid number for pit index"
+
+        # If the game is already over, return.
+        if self._board.is_game_over():
+            return "Game is ended"
 
         # Play a round of the game according to the rules.
         # The play_turn method on board will print "player <player_number> take another turn" if applicable.
         board = self._board
         board.play_turn(player_idx, pit_idx)
 
-        # If the game is over, perform a final tally by moving any remaining
-        # seeds in the pits to their respective player store.
+        # Following the turn, if the game is over, perform a final tally by moving any remaining seeds in
+        # the pits to their respective player store.
         if self._board.is_game_over():
             self._board.final_tally()
-            return "Game is ended"
-        # Otherwise, form the return list of seed and store tallies.
+
+        # Finally, return the list of seed and store tallies.
         seeds = board.get_pit_seeds(1) + [board.get_store_seeds(1)]   # Player 1 pits + store
         seeds += board.get_pit_seeds(2) + [board.get_store_seeds(2)]  # Player 2 pits + store
         return seeds
