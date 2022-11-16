@@ -1,5 +1,5 @@
 # Mancala
-Toy command line Mancala board game implemented with python. 
+Toy command line Mancala board game implemented with python using a composition-ish based OOP approach.
 
 👉[Live demo](https://replit.com/@KevinKuei/Mancala-Game#main.py)👈
 
