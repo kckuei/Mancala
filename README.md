@@ -10,7 +10,7 @@ Toy command line Mancala board game implemented with python using a composition-
 ## Implementation Notes
 
 ### Classes
-The game is implemented with 4 basic classes as follows:
+The game is implemented with four basic classes as follows:
 * Mancala - Mancala class representing the game as played.
 * Player - Player class representing each of the players.
 * Board - Board class representing the Mancala board.
