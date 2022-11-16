@@ -5,6 +5,7 @@ Toy command line Mancala board game implemented with python using a composition-
 
 ## Rules
 * Read about the official rules for the game [here](https://www.officialgamerules.org/mancala).
+* Alternatively, tinker around/experiement in this fancier web implementation at this [link](https://www.mathplayground.com/mancala.html).
 
 ## Implementation Notes
 
