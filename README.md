@@ -29,6 +29,7 @@ The `Mancala` class representing the game as played, builds on the other class a
 
 
 ## Example Gameplay
+```
 
 ███╗   ███╗ █████╗ ███╗   ██╗ ██████╗ █████╗ ██╗      █████╗
 ████╗ ████║██╔══██╗████╗  ██║██╔════╝██╔══██╗██║     ██╔══██╗
@@ -186,3 +187,4 @@ Player 2    6   5   4   3   2   1
 Player 1    1   2   3   4   5   6 
 
 Player 1 (Kevin) turn.
+```
