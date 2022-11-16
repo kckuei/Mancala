@@ -1,9 +1,9 @@
 # Mancala
+![Mancala Board](./assets/board.jpg)
+
 Toy command line Mancala board game implemented with python using a composition-ish based OOP approach.
 
 👉[Live demo](https://replit.com/@KevinKuei/Mancala-Game#main.py)👈
-
-![Mancala Board](./assets/board.jpg)
 
 ## Rules
 * Read about the official rules for the game [here](https://www.officialgamerules.org/mancala).
