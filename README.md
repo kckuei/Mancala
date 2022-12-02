@@ -29,7 +29,8 @@ Players are presented by a trivial `Player` class with their names.
 
 The `Mancala` class representing the game as played, builds on the other class abstractions. Each Mancala object has two Players, and a Board.
 
-They salient snippet of code for modelling the board (taken from the `setup_board` method of the `Board` class) is as follows:
+### Board Representation
+They salient code for representing the board is as follows (taken from the `setup_board` method of the `Board` class):
 
 ```python
 # Create player 1 store and pits.
