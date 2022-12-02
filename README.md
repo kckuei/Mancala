@@ -29,6 +29,52 @@ Players are presented by a trivial `Player` class with their names.
 
 The `Mancala` class representing the game as played, builds on the other class abstractions. Each Mancala object has two Players, and a Board.
 
+They salient snippet of code for modelling the board (taken from the `setup_board` method of the `Board` class) is as follows:
+
+```python
+# Create player 1 store and pits.
+p1_store = Container('store', 1, 'store')
+p1_pits = [Container(i, 1, 'pit') for i in range(1, self.get_num_pits()+1)]
+
+# Create player 2 store and pits.
+p2_store = Container('store', 2, 'store')
+p2_pits = [Container(i, 2, 'pit') for i in range(1, self.get_num_pits()+1)]
+
+# Next, create a closed-circuit for the game board by connecting the containers.
+# First, chain the pits together, consecutively, for player 1 and 2.
+for i in range(0, self.get_num_pits() - 1):
+	p1_pits[i].set_next(p1_pits[i + 1])
+	p2_pits[i].set_next(p2_pits[i + 1])
+
+# Next, chains the ends of the stores and pits for player 1 and 2.
+p1_pits[-1].set_next(p1_store)
+p1_store.set_next(p2_pits[0])
+p2_pits[-1].set_next(p2_store)
+p2_store.set_next(p1_pits[0])
+
+# Set the adjacent nodes, which will be opposing, i.e.
+#   p2: 6 5 4 3 2 1
+#   p1: 1 2 3 4 5 6
+for i in range(0, self.get_num_pits()):
+	p1_pits[i].set_adjacent(p2_pits[self.get_num_pits()-1-i])
+	p2_pits[i].set_adjacent(p1_pits[self.get_num_pits()-1-i])
+
+# Initialize all the pits with the specified number of seeds.
+[pit.set_seeds(self.get_num_seeds()) for pit in p1_pits + p2_pits]
+
+# Create a common access interface for the containers. Represent the board
+# with a nested dictionary, where the first level is player id (1 or 2), and
+# the second is the pit/store id.
+board = {1: {}, 2: {}}
+for pit in p1_pits:
+  board[1][pit.get_id()] = pit
+for pit in p2_pits:
+	board[2][pit.get_id()] = pit
+board[1]['store'] = p1_store
+board[2]['store'] = p2_store
+self._board = board
+
+```
 
 ## Example Gameplay
 ```
